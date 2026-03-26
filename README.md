@@ -72,6 +72,22 @@
 
 ---
 
+## 启动修复记录 (Startup Fixes Log)
+
+在环境适配与一键部署的过程中，我们排查并修复了以下导致系统启动失败的关键问题，以确保本项目能在各个平台（包含 macOS 和 Linux）顺畅运行：
+
+1. **macOS 脚本兼容性**：`deploy.sh` 磁盘检测命令 `df -BG` 在 macOS 上引发 `integer expression expected`，现已自适应内核探测（`uname`）。
+2. **容器与端口冲突**：剥离了 `docker-compose.yml` 中的固定 `container_name` 防止新老容器名冲突。
+3. **基础设施自启异常**：
+   - **Milvus**：官方独立版镜像缺失 `command` 导致秒退，现补充了 `milvus run standalone`。
+   - **Ollama**：官方镜像剥离了 `curl` 导致旧版健康检查失效，现改用原生的 `ollama list`。
+4. **后端容器崩溃 (无限重启)**：
+   - **依赖包链式崩塌**：最新的 `marshmallow` 移除了 `__version_info__` 导致 `environs` (由 `pymilvus` 选用) 瘫痪。现已在 `requirements.txt` 硬锁定 `marshmallow<3.20.0`。
+   - **SQLite 权限被拒**：原挂载数据卷为只读 `- ./data:/app/data:ro`，导致无法实时创建 `financial.db`，现已移除 `:ro`。
+   - **C++ 源码编译缺失**：Dockerfile 缺少 `zlib1g-dev`，导致 `zlib-state` 模块在 `pip install` 阶段编译失败，已通过 `apt-get` 补全。
+
+---
+
 ## 快速开始
 
 ### 环境要求

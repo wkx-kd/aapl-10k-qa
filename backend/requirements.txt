@@ -14,6 +14,7 @@ torch>=2.0.0
 
 # Vector database
 pymilvus==2.4.9
+marshmallow<3.20.0
 
 # Graph database
 neo4j==5.27.0

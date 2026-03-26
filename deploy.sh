@@ -93,11 +93,12 @@ check_prerequisites() {
 
     # 检查磁盘空间
     local free_disk_gb
-    free_disk_gb=$(df -BG . 2>/dev/null | tail -1 | awk '{gsub("G",""); print $4}' 2>/dev/null || echo "0")
-    if [ "$free_disk_gb" = "0" ]; then
-        # macOS fallback
+    if [[ "$(uname)" == "Darwin" ]]; then
         free_disk_gb=$(df -g . | tail -1 | awk '{print $4}')
+    else
+        free_disk_gb=$(df -BG . 2>/dev/null | tail -1 | awk '{gsub("G",""); print $4}' 2>/dev/null || echo "0")
     fi
+    free_disk_gb=${free_disk_gb:-0}
 
     if [ "$free_disk_gb" -lt 10 ]; then
         error "磁盘空间不足: ${free_disk_gb}GB 可用（需要至少 10GB）"
@@ -205,7 +206,7 @@ start_infrastructure() {
 
         # 检查 Milvus
         if ! curl -sf http://localhost:19530/healthz > /dev/null 2>&1 && \
-           ! docker exec milvus-standalone curl -sf http://localhost:9091/healthz > /dev/null 2>&1; then
+           ! curl -sf http://localhost:9091/healthz > /dev/null 2>&1; then
             all_healthy=false
         fi
 

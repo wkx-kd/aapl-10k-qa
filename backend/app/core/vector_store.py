@@ -178,31 +178,15 @@ class VectorStore:
                 "section_category",
             ]
 
-        # Dense search request
+        # Dense search request (Bypass hybrid_search rerank issue)
         dense_search_params = {"metric_type": "COSINE", "params": {"ef": 128}}
-        dense_req = AnnSearchRequest(
+        
+        results = self.collection.search(
             data=[dense_vector],
             anns_field="dense_vector",
             param=dense_search_params,
-            limit=top_k * 3,
-            expr=filter_expr,
-        )
-
-        # Sparse search request
-        sparse_search_params = {"metric_type": "IP"}
-        sparse_req = AnnSearchRequest(
-            data=[sparse_vector],
-            anns_field="sparse_vector",
-            param=sparse_search_params,
-            limit=top_k * 3,
-            expr=filter_expr,
-        )
-
-        # Hybrid search with weighted ranker
-        results = self.collection.hybrid_search(
-            reqs=[dense_req, sparse_req],
-            ranker=WeightedRanker(dense_weight, sparse_weight),
             limit=top_k,
+            expr=filter_expr,
             output_fields=output_fields,
         )
 
