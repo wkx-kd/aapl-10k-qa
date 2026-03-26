@@ -1,0 +1,242 @@
+[
+  {
+    "id": "quant_01",
+    "question": "What was Apple's total revenue in fiscal year 2025?",
+    "expected_intent": "quantitative",
+    "expected_answer_contains": ["416161", "416.2", "416"],
+    "expected_sources": [{"table": "income_statement", "column": "revenue", "year": 2025}],
+    "category": "quantitative"
+  },
+  {
+    "id": "quant_02",
+    "question": "What was Apple's net income in 2024?",
+    "expected_intent": "quantitative",
+    "expected_answer_contains": ["93736", "93.7"],
+    "expected_sources": [{"table": "income_statement", "column": "net_income", "year": 2024}],
+    "category": "quantitative"
+  },
+  {
+    "id": "quant_03",
+    "question": "Which year had the highest gross margin?",
+    "expected_intent": "quantitative",
+    "expected_answer_contains": ["gross margin"],
+    "expected_sources": [{"table": "derived_metrics", "column": "gross_margin"}],
+    "category": "quantitative"
+  },
+  {
+    "id": "quant_04",
+    "question": "What was Apple's EPS (diluted) in 2025?",
+    "expected_intent": "quantitative",
+    "expected_answer_contains": ["7.46"],
+    "expected_sources": [{"table": "income_statement", "column": "eps_diluted", "year": 2025}],
+    "category": "quantitative"
+  },
+  {
+    "id": "quant_05",
+    "question": "How much cash and cash equivalents did Apple have in 2023?",
+    "expected_intent": "quantitative",
+    "expected_answer_contains": ["cash"],
+    "expected_sources": [{"table": "balance_sheet", "column": "cash_and_equivalents", "year": 2023}],
+    "category": "quantitative"
+  },
+  {
+    "id": "quant_06",
+    "question": "What was Apple's revenue year-over-year growth rate in 2025?",
+    "expected_intent": "quantitative",
+    "expected_answer_contains": ["growth"],
+    "expected_sources": [{"table": "derived_metrics", "column": "revenue_yoy_growth", "year": 2025}],
+    "category": "quantitative"
+  },
+  {
+    "id": "quant_07",
+    "question": "What was the operating income in fiscal year 2022?",
+    "expected_intent": "quantitative",
+    "expected_answer_contains": ["operating"],
+    "expected_sources": [{"table": "income_statement", "column": "operating_income", "year": 2022}],
+    "category": "quantitative"
+  },
+  {
+    "id": "quant_08",
+    "question": "What was Apple's debt-to-equity ratio in 2025?",
+    "expected_intent": "quantitative",
+    "expected_answer_contains": ["debt"],
+    "expected_sources": [{"table": "derived_metrics", "column": "debt_to_equity", "year": 2025}],
+    "category": "quantitative"
+  },
+  {
+    "id": "narr_01",
+    "question": "What are the main risk factors Apple faces related to its supply chain?",
+    "expected_intent": "narrative",
+    "expected_answer_contains": ["supply chain", "manufacturer", "component"],
+    "expected_sources": [{"section_id": 3}],
+    "category": "narrative"
+  },
+  {
+    "id": "narr_02",
+    "question": "How does Apple describe its competitive environment in the 10-K?",
+    "expected_intent": "narrative",
+    "expected_answer_contains": ["competition", "competitive"],
+    "expected_sources": [{"section_id": 2}],
+    "category": "narrative"
+  },
+  {
+    "id": "narr_03",
+    "question": "What does Apple's management discussion say about their services business?",
+    "expected_intent": "narrative",
+    "expected_answer_contains": ["services"],
+    "expected_sources": [{"section_id": 11}],
+    "category": "narrative"
+  },
+  {
+    "id": "narr_04",
+    "question": "What legal proceedings is Apple involved in according to the 10-K?",
+    "expected_intent": "narrative",
+    "expected_answer_contains": ["legal", "litigation", "proceeding"],
+    "expected_sources": [{"section_id": 7}],
+    "category": "narrative"
+  },
+  {
+    "id": "narr_05",
+    "question": "How does Apple address cybersecurity risks in its filings?",
+    "expected_intent": "narrative",
+    "expected_answer_contains": ["cybersecurity", "security"],
+    "expected_sources": [{"section_id": 5}],
+    "category": "narrative"
+  },
+  {
+    "id": "narr_06",
+    "question": "What does Apple say about research and development activities?",
+    "expected_intent": "narrative",
+    "expected_answer_contains": ["research", "development", "R&D"],
+    "expected_sources": [{"section_id": 2}],
+    "category": "narrative"
+  },
+  {
+    "id": "narr_07",
+    "question": "Describe Apple's approach to environmental sustainability based on the 10-K.",
+    "expected_intent": "narrative",
+    "expected_answer_contains": ["environment", "carbon", "sustainab"],
+    "expected_sources": [],
+    "category": "narrative"
+  },
+  {
+    "id": "narr_08",
+    "question": "What macroeconomic risks does Apple highlight in its risk factors?",
+    "expected_intent": "narrative",
+    "expected_answer_contains": ["macroeconomic", "economic", "inflation"],
+    "expected_sources": [{"section_id": 3}],
+    "category": "narrative"
+  },
+  {
+    "id": "rel_01",
+    "question": "What products does Apple sell?",
+    "expected_intent": "relationship",
+    "expected_answer_contains": ["iPhone", "Mac", "iPad"],
+    "expected_sources": [],
+    "category": "relationship"
+  },
+  {
+    "id": "rel_02",
+    "question": "Who is Apple's CEO?",
+    "expected_intent": "relationship",
+    "expected_answer_contains": ["Tim Cook", "Timothy"],
+    "expected_sources": [],
+    "category": "relationship"
+  },
+  {
+    "id": "rel_03",
+    "question": "What geographic segments does Apple operate in?",
+    "expected_intent": "relationship",
+    "expected_answer_contains": ["Americas", "Europe", "China"],
+    "expected_sources": [],
+    "category": "relationship"
+  },
+  {
+    "id": "rel_04",
+    "question": "What types of risks does Apple face?",
+    "expected_intent": "relationship",
+    "expected_answer_contains": ["risk"],
+    "expected_sources": [],
+    "category": "relationship"
+  },
+  {
+    "id": "comp_01",
+    "question": "How did Apple's revenue change from 2020 to 2025?",
+    "expected_intent": "hybrid",
+    "expected_answer_contains": ["revenue", "growth", "increase"],
+    "expected_sources": [],
+    "category": "comparison"
+  },
+  {
+    "id": "comp_02",
+    "question": "Compare Apple's net income across 2020-2025 and explain the trends.",
+    "expected_intent": "hybrid",
+    "expected_answer_contains": ["net income"],
+    "expected_sources": [],
+    "category": "comparison"
+  },
+  {
+    "id": "comp_03",
+    "question": "How have Apple's profit margins evolved from 2020 to 2025?",
+    "expected_intent": "hybrid",
+    "expected_answer_contains": ["margin"],
+    "expected_sources": [],
+    "category": "comparison"
+  },
+  {
+    "id": "comp_04",
+    "question": "Analyze the trend in Apple's free cash flow over the past 6 years.",
+    "expected_intent": "hybrid",
+    "expected_answer_contains": ["cash flow"],
+    "expected_sources": [],
+    "category": "comparison"
+  },
+  {
+    "id": "comp_05",
+    "question": "How has Apple's debt-to-equity ratio changed over the years?",
+    "expected_intent": "hybrid",
+    "expected_answer_contains": ["debt"],
+    "expected_sources": [],
+    "category": "comparison"
+  },
+  {
+    "id": "comp_06",
+    "question": "Compare Apple's R&D spending across fiscal years 2020-2025.",
+    "expected_intent": "hybrid",
+    "expected_answer_contains": ["R&D", "research"],
+    "expected_sources": [],
+    "category": "comparison"
+  },
+  {
+    "id": "complex_01",
+    "question": "What factors drove Apple's revenue growth in recent years according to the 10-K?",
+    "expected_intent": "hybrid",
+    "expected_answer_contains": ["revenue", "growth"],
+    "expected_sources": [],
+    "category": "complex"
+  },
+  {
+    "id": "complex_02",
+    "question": "How has Apple's business strategy evolved based on the management discussion sections?",
+    "expected_intent": "narrative",
+    "expected_answer_contains": ["strategy"],
+    "expected_sources": [{"section_id": 11}],
+    "category": "complex"
+  },
+  {
+    "id": "complex_03",
+    "question": "What new risks emerged in Apple's 2025 10-K compared to earlier filings?",
+    "expected_intent": "hybrid",
+    "expected_answer_contains": ["risk"],
+    "expected_sources": [{"section_id": 3}],
+    "category": "complex"
+  },
+  {
+    "id": "complex_04",
+    "question": "Analyze Apple's capital allocation strategy based on cash flow data and management discussion.",
+    "expected_intent": "hybrid",
+    "expected_answer_contains": ["capital", "dividend", "repurchase"],
+    "expected_sources": [],
+    "category": "complex"
+  }
+]

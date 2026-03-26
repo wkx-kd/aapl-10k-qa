@@ -14,7 +14,7 @@ from app.core.graph_store import GraphStore
 from app.core.intent_router import IntentRouter
 from app.core.rag_pipeline import RAGPipeline
 
-from app.api import chat, search, financial, graph, sections
+from app.api import chat, search, financial, graph, sections, evaluation
 
 logging.basicConfig(
     level=logging.INFO,
@@ -99,6 +99,7 @@ app.include_router(search.router, prefix="/api", tags=["Search"])
 app.include_router(financial.router, prefix="/api", tags=["Financial"])
 app.include_router(graph.router, prefix="/api", tags=["Graph"])
 app.include_router(sections.router, prefix="/api", tags=["Sections"])
+app.include_router(evaluation.router, prefix="/api", tags=["Evaluation"])
 
 
 @app.get("/health")
