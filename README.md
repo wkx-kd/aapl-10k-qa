@@ -228,3 +228,4 @@ This project was built with AI assistance (Claude). The collaboration approach:
 4. **Key human decisions**: Tech stack selection (Milvus, Neo4j, BGE-M3), routing strategy, evaluation criteria
 
 The git history reflects the incremental development process with meaningful commit messages at each phase.
+# aapl-10k-qa
