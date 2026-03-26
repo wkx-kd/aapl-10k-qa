@@ -1,0 +1,29 @@
+# Web framework
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+sse-starlette==2.2.1
+python-multipart==0.0.20
+
+# Pydantic
+pydantic==2.10.4
+pydantic-settings==2.7.1
+
+# Embedding model
+FlagEmbedding==1.3.3
+torch>=2.0.0
+
+# Vector database
+pymilvus==2.4.9
+
+# Graph database
+neo4j==5.27.0
+
+# HTTP client
+httpx==0.28.1
+aiohttp==3.11.11
+
+# Data processing
+numpy>=1.24.0
+
+# Utilities
+python-dotenv==1.0.1
