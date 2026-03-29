@@ -16,10 +16,18 @@ def get_model():
     if _model is None:
         logger.info("Loading BGE-M3 model... (this may take a minute)")
         from FlagEmbedding import BGEM3FlagModel
+        from huggingface_hub import snapshot_download
 
-        _model = BGEM3FlagModel(
-            "BAAI/bge-m3", use_fp16=True
+        # Pre-download with ignore_patterns to skip .DS_Store files that
+        # cause 403 errors on some HuggingFace mirror servers (e.g. hf-mirror.com)
+        logger.info("Downloading BGE-M3 model files (ignoring .DS_Store)...")
+        model_path = snapshot_download(
+            "BAAI/bge-m3",
+            ignore_patterns=["*.DS_Store", "imgs/"],
         )
+        logger.info(f"Model downloaded to: {model_path}")
+
+        _model = BGEM3FlagModel(model_path, use_fp16=True)
         logger.info("BGE-M3 model loaded successfully")
     return _model
 
